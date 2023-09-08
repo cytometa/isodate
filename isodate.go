@@ -43,3 +43,8 @@ func (d *IsoDate) Scan(value interface{}) error {
 func (d IsoDate) Value() (driver.Value, error) {
 	return d.Time.Format("2006-01-02"), nil
 }
+
+// String to return string for IsoDate value, for example in HTML templates
+func (d IsoDate) String() string {
+	return d.Time.Format("2006-01-02")
+}
