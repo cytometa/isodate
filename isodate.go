@@ -48,3 +48,8 @@ func (d IsoDate) Value() (driver.Value, error) {
 func (d IsoDate) String() string {
 	return d.Time.Format("2006-01-02")
 }
+
+// Format to format dates in a custom way
+func (d IsoDate) Format(layout string) string {
+	return d.Time.Format(layout)
+}
