@@ -17,6 +17,15 @@ func New(time time.Time) IsoDate {
 	return i
 }
 
+// Parse to create a date from a string
+func Parse(value string) (IsoDate, error) {
+	t, err := time.Parse("2006-01-02", value)
+	if err != nil {
+		return IsoDate{}, err
+	}
+	return IsoDate{Time: t}, nil
+}
+
 // UnmarshalJSON to read a JSON
 func (d *IsoDate) UnmarshalJSON(b []byte) error {
 	var s string
