@@ -10,9 +10,9 @@ type IsoDate struct {
 	Time time.Time
 }
 
-func New(time time.Time) IsoDate {
+func New(t time.Time) IsoDate {
 	i := IsoDate{
-		Time: time,
+		Time: time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, t.Location()),
 	}
 	return i
 }
